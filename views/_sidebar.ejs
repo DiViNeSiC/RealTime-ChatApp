@@ -1,0 +1,43 @@
+<div class="sidebar-container">
+    <button class="sidebar-button open" id="sidebarButton">
+        <i class="fas fa-bars"></i>
+        <i class="fas fa-times"></i>
+    </button>
+    <div class="sidebar" id="sidebar">
+        <header>Realtime Chat App</header>
+        <ul>
+            <li>
+                <a href="/user/settings">
+                    <i class="fas fa-user-circle"></i> 
+                    Your account
+                </a>
+            </li>
+            <li>
+                <a href="/">
+                    <i class="fas fa-comments"></i> 
+                    Chat Rooms
+                </a>
+            </li>
+            <li>
+                <a href="/user/rooms">
+                    <i class="fas fa-id-card"></i> 
+                    Your Chat Rooms
+                </a>
+            </li>
+            <li>
+                <a href="/room/create">
+                    <i class="fas fa-plus-square"></i> 
+                    Create a room
+                </a>
+            </li>
+            <li>
+                <form action="/logout?_method=DELETE" method="POST">
+                    <button type="submit">
+                        <i class="fas fa-minus-square"></i> 
+                        Log out
+                    </button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realtime Chat App</title>
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Audiowide&family=Work+Sans:wght@600&display=swap" 
+        rel="stylesheet"
+    >
+    <link rel="stylesheet" href="/Styles/sidebar.css">
+    <link rel="stylesheet" href="/Styles/chatRoom.css">
+    <script>
+        const roomId = "<%= room.id %>"
+        const token = "<%= token %>"
+        let onlineMemberCount = "<%= room.joinedUsers.length %>"
+    </script>
+    <!-- <script defer src="http://localhost:3000/socket.io/socket.io.js"></script> -->
+    <script defer src="https://real-time-chat-app-testing.herokuapp.com/socket.io/socket.io.js"></script>
+    <script src="/Scripts/chatRoom.js" defer></script>
+    <script src="/Scripts/toggleModal.js" defer></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" defer></script>
+    <script src="/Scripts/toggleSidebar.js" defer></script>
+</head>
+<body>
+    <%- include('_sidebar') %>
+    <div class="chat-app-container">
+        <div class="title">
+            <h1>Realtime Chat App</h1>
+        </div>
+        <div class="details-container">
+            <div class="name"><%= room.roomName %></div>
+            <button class="details-button" id="openModalButton">Details</button>
+            <div class="online-members" id="onlineMembers">3 Online</div>
+        </div>
+        <div class="message-container" id="messageContainer">
+            
+        </div>
+        <div class="input-container">
+            <form action="" class="input-form" id="sendContainer">
+                <input type="text" name="" id="messageInput" class="message-input">
+                <button type="submit" class="send-btn" id="sendButton">Send</button>
+            </form>
+        </div>
+        <div class="modal-container hidden" id="modal">
+            <div class="modal">
+                <button type="button" class="close" id="closeButton">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="names">
+                    <div class="name">Room Name: "<%= room.roomName %>"</div>
+                    <div class="creator">Creator: "<%= room.creator.name %>"</div>
+                </div>
+                <div class="description-container">
+                    <h3>Description:</h3>
+                    <div class="description">
+                        <% if (room.description.length < 1) { %>
+                            "_Empty_"
+                        <% } %>
+                        <p><%= room.description %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

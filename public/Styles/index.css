@@ -1,0 +1,187 @@
+*,
+*::before, 
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #acb5c9;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.user-info {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+}
+
+.user-info div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #315c31;
+}
+
+.user-info span {
+    color: rgb(0, 29, 107);
+}
+
+.title {
+    font-family: 'Audiowide', cursive;
+    color: #033333;
+}
+
+.rooms-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 100px;
+}
+
+.err-message { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ff1122;
+    font-size: 2.5rem;
+    font-weight: 900;
+    height: 50vh;
+    width: 40vw;
+}
+
+.room {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Work Sans', sans-serif;
+    border-radius: .4rem;
+    margin: 5px;
+    width: 250px;
+    padding: 10px;
+    transform-style: preserve-3d;
+    transition: .5s;
+    transform: perspective(1000px) translateY(var(--translate-y, 0));
+}
+
+.room:hover {
+    --translate-y: -2px;
+    box-shadow: 0 0 5px 2px rgba(0, 0, 0, .5);
+}
+
+.room .name {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.room a {
+    font-size: 1rem;
+    text-decoration: none;
+    background-color: #033333;
+    border-radius: 1.5rem;
+    padding: 7px 12px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.room:nth-child(2n + 1) {
+    background-color: #171f91cc;
+}
+
+.room:nth-child(2n) {
+    background-color: #5f67d8cc;
+}
+
+.create-room-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 25px;
+    background-color: #007070;
+    border-radius: 1.5rem;
+    width: 60%;
+}
+
+.create-room-container a {
+    color: #fff;
+    font-size: 1.8rem;
+    padding: 10px 5px;
+    font-weight: 900;
+    text-decoration: none;
+    transition: .6s;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.create-room-container a:hover {
+    color: #45a3f0;
+    font-size: 2rem;
+}
+
+@media all and (max-width: 400px) {
+    .user-info {
+        right: 20px;
+        top: 30px;
+    }
+    
+    .user-info div {
+        font-size: .9rem;
+        font-weight: 700;
+    }
+
+    .create-room-container {
+        width: 50%;
+    }
+    
+    .create-room-container a {
+        font-size: 1.4rem;
+        font-weight: 700;
+    }
+    
+    .create-room-container a:hover {
+        font-size: 1.6rem;
+    }
+    
+}
+
+@media all and (max-width: 360px) {
+    .room {
+        width: 190px;
+        
+    }
+    .room .name, .room a {
+        font-size: 1.105rem;
+    }
+}
+
+@media all and (max-width: 320px) {
+    .title {
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .user-info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: static;
+        margin-bottom: 20px;
+    }
+    
+} 

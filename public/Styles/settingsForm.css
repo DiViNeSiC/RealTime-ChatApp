@@ -1,0 +1,364 @@
+*,
+*::before, 
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 50vh;
+    background-color: #acb5c9;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.container {
+    background-color: #ccd;
+    min-height: 450px;
+    position: relative;
+    top: 100px;
+    width: 70vw;
+    max-width: 700px;
+    padding: 10px;
+    border: none;
+    border-radius: .8rem;
+    box-shadow: 0 0 4px 4px rgba(34, 34, 34, 0.486);
+}
+
+.update-form {
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 420px;
+    width: 100%;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 0;
+    width: 100%;
+
+}
+
+.form-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.form-input input {
+    width: 85%;
+    background-color: #98c9df;
+    border: none;
+    border-radius: 1.2rem;
+    padding: 7px 14px;
+    font-size: .9rem;
+    font-weight: 800;
+    outline: none;
+    transition: .5s;
+}
+
+.form-input input:focus {
+    background-color: #004f74;
+    color: #fff;
+    transform: scale(1.05, 1.05);
+}
+
+.form-input label {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: column;
+    height: 50%;
+}
+
+.buttons button {
+    cursor: pointer;
+    transition: .5s;
+    padding: 10px;
+    border-radius: .3rem;
+    border: none;
+    margin: 10px 0;
+}
+
+.change-pass-button {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    background-color: #008394;
+}
+
+.change-pass-button:hover {
+    background-color: #004f74;
+}
+
+.update-button {
+    background-color: #00c431;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.update-button:hover {
+    background-color: #018b23;
+}
+
+.delete-button {
+    background-color: #f12d2d;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.delete-button:hover {
+    background-color: #aa0000;
+}
+
+.delete-modal-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.hidden {
+    visibility: hidden;
+    display: none;
+}
+
+.hidden * { 
+    transition: 0s;
+}
+
+.delete-modal {
+    background-color: rgb(129, 141, 151);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    width: 70vw;
+    max-width: 450px;
+    height: 270px;
+    border-radius: 1.5rem;
+    box-shadow: 0 0 5px 5px #000;
+}
+
+.close {
+    margin: 15px;
+    align-self: flex-end;
+    background-color: rgb(129, 141, 151);
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.delete-modal form {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin-top: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.delete-group {
+    margin: 15px 0;
+}
+
+.delete-group input {
+    background-color: #5de0f1;
+    padding: 5px 10px;
+    text-align: center;
+    width: 90%;
+    border-radius: .5rem;
+    color: #fff;
+    outline: none;
+    font-size: .99em;
+    transition: .4s;
+}
+
+.delete-group input:focus {
+    background-color: #004f74;
+    color: #fff;
+}
+
+.delete-group label {
+    font-size: 1.1rem;
+    font-weight: 700;
+    user-select: none;
+    margin-bottom: 10px;
+}
+
+.delete-form .button {
+    background-color: #f12d2d;
+    color: #fff;
+    font-size: 1.1rem;
+    margin-top: auto;
+    margin-bottom: 20px;
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+    border-radius: .4em;
+} 
+
+.delete-form .button:hover {
+    transform: scale(1.2, 1.2);
+}
+
+.error-notification {
+    width: 100%;
+    height: 10vh;
+    z-index: 4;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: fixed;
+    border-radius: 0 0 1.2rem 1.2rem;
+    font-size: 1.4rem;
+    font-weight: 800;
+    transition: all .6s linear;
+    visibility: visible;
+    transform: perspective(1000px) translate(0%, 0%);
+}
+
+.hide {
+    visibility: hidden;
+    transform: perspective(1000px) translate(0%, -100%);
+}
+
+.bad {
+    background-color: #f12d2d;
+}
+
+.good {
+    background-color: #31ff4c;
+}
+
+.sidebar-container .close {
+    margin-top: -2px;
+    margin-left: -2px;
+}
+
+.modal-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.change-pass-modal {
+    background-color: rgb(129, 141, 151);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    width: 70vw;
+    max-width: 450px;
+    height: 270px;
+    border-radius: 1.5rem;
+    box-shadow: 0 0 5px 5px #000;
+}
+
+.change-pass-modal form {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    margin-top: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.change-pass-modal .form-group {
+    margin: 15px 0;
+}
+
+.change-pass-modal .form-group input {
+    background-color: #01afff;
+    padding: 5px 10px;
+    text-align: center;
+    width: 90%;
+    border-radius: .5rem;
+    color: #fff;
+    outline: none;
+    font-size: .99em;
+}
+
+.change-pass-modal .form-group input:focus {
+    background-color: #004f74;
+}
+
+.change-pass-modal form .button {
+    background-color: #0003b4;
+    cursor: pointer;
+    color: #fff;
+    margin-top: auto;
+    margin-bottom: 20px;
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+    border-radius: .4em;
+}
+
+.change-pass-modal form .button:hover {
+    background-color: #1e2dff;
+}
+
+@media all and (max-width: 360px) {
+    .form-input label {
+        font-size: .9rem;
+    }
+    
+    .form-input input {
+        padding: 4px 10px;
+        font-size: .8rem;
+        font-weight: 600;
+        width: 100%;
+    }
+}
+
+@media all and (max-width: 300px) {
+    .buttons button {
+        font-size: .7rem;
+    }
+}
+
+@media all and (min-height: 800px) {
+    .change-pass-modal {
+        height: 400px;
+    }
+}

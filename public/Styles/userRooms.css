@@ -1,0 +1,170 @@
+*,
+*::before, 
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #a2b0cf;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.title {
+    text-align: center;
+    font-family: 'Audiowide', cursive;
+    color: #033333;
+    font-size: 1.7rem;
+}
+
+.rooms-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    width: 300px;
+    max-width: 700px;
+    margin-bottom: 65px;
+}
+
+.room {
+    background-color: #004ba1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 25px;
+    border: none;
+    border-radius: .9rem;
+    margin: 20px;
+    width: 100%;
+}
+
+.room:nth-child(2n) {
+    background-color: #004fb6;
+}
+
+.room .name {
+    font-size: 1.2rem;
+    text-align: center;
+    color: #001010;
+    font-weight: 800;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.room .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 15px;
+    margin-bottom: -10px;
+    width: 90%;
+}
+
+.room a {
+    text-shadow: 1px 1px rgba(0, 0, 0, .5);
+    color: #88ff00;
+    font-size: 1.15rem;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.room form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.room form button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 6px;
+    background: none;
+    border: none;
+    outline: none;
+    color: #ff1122;
+    font-size: 1.15rem;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.room form button:hover {
+    text-decoration: underline #ff1122;
+}
+
+.room a:hover {
+    text-decoration: underline #88ff00;
+}
+
+.create-room-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+    background-color: #007070;
+    border-radius: 1.5rem;
+    width: 100px;
+    padding: 2px;
+}
+
+.create-room-container a {
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px 5px;
+    font-weight: 900;
+    text-decoration: none;
+    transition: .6s;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.create-room-container a:hover {
+    color: #45a3f0;
+}
+
+.err-message { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ff1122;
+    font-size: 2.5rem;
+    font-weight: 900;
+    height: 50vh;
+    width: 40vw;
+}
+
+@media all and (max-width: 320px) {
+    .rooms-container {
+        width: 60vw;
+    }
+
+    .room {
+        font-size: .8rem;
+        width: 200%;
+    }
+
+    .title {
+        font-size: 1.7rem;
+        margin-top: 80px;
+    }
+
+    .create-room-container a {
+        font-size: .7rem;
+        font-weight: 700;
+    }
+
+    .err-message {
+        font-size: 1.8rem;
+    }
+}

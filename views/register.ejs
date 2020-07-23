@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Audiowide&family=Work+Sans:wght@600&display=swap" 
+        rel="stylesheet"
+    >
+    <link rel="stylesheet" href="/Styles/loginForm.css">
+    <title>Register</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Register form</h1>
+        <div class="form-container">
+            <% if (userExistError) { %>
+                <div class="error">
+                    <%= errMessage %>
+                </div>
+            <% } %> 
+            <form class="login-form" action="/register" method="POST">
+                <div>
+                    <input placeholder="Name" type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <input placeholder="Email" type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <input placeholder="Password" type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Register</button>
+            </form>
+            <div class="option-container">
+                have an account ?
+                <a href="/login">Login</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

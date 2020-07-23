@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Audiowide&family=Work+Sans:wght@600&display=swap" 
+        rel="stylesheet"
+    >
+    <link rel="stylesheet" href="/Styles/index.css">
+    <link rel="stylesheet" href="/Styles/sidebar.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" defer></script>
+    <script src="/Scripts/toggleSidebar.js" defer></script>
+    <title>Home</title>
+</head>
+<body>
+    <%- include('_sidebar') %> 
+    <h1 class="title">Rooms</h1>
+    <div class="user-info">
+        <div>
+            Signed as: <span><%= user.name %></span>
+        </div>
+    </div>
+    <div class="rooms-container">
+        <% if (rooms.length < 1) { %>
+            <div class="err-message">ROOMS ARE EMPTY</div>
+        <% } %> 
+        <% rooms.forEach(room => { %>
+            <div class="room">
+                <div class="name">
+                    <%= room.roomName %> 
+                </div>
+                <a href="/chatroom/name=<%= room.slug %>" class="join">Join</a>
+            </div>
+        <% }) %> 
+    </div>
+    <div class="create-room-container">
+        <a href="/room/create">Create a Room</a>
+    </div>
+</body>
+</html>

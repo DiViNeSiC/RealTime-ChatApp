@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link 
+        rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+        crossorigin="anonymous"
+    >
+    <link rel="stylesheet" href="/Styles/createRoom.css">
+    <link rel="stylesheet" href="/Styles/sidebar.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" defer></script>
+    <script src="/Scripts/toggleSidebar.js" defer></script>
+    <script src="/Scripts/messageNotification.js" defer></script>
+    <title>Edit Room</title>
+    
+</head>
+<body>
+    <%- include('_sidebar') %>
+    <div id="nameExistErrNotification" class="error-notification <%= error %> hide">    
+        <div><%= errorMessage %></div>
+    </div>
+    <h1 class="title">EDIT ROOM</h1>
+    <div class="container">
+        <form class="form" action="/room/edit/update/id=<%= roomId %>?_method=PUT" method="POST">
+            <%- include('_roomForm') %>
+            <div class="buttons">
+                <button type="submit" class="btn btn-success">Edit</button>
+                <a href="/user/rooms" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

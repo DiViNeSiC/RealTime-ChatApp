@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Audiowide&family=Work+Sans:wght@600&display=swap" 
+        rel="stylesheet"
+    >
+    <link rel="stylesheet" href="/Styles/userRooms.css">
+    <link rel="stylesheet" href="/Styles/sidebar.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" defer></script>
+    <script src="/Scripts/toggleSidebar.js" defer></script>
+    <title>Your Rooms</title>
+</head>
+<body>
+    <%- include('_sidebar') %> 
+    <h1 class="title">Your Rooms</h1>
+    <div class="rooms-container">
+        <% if (userRooms.length < 1) { %>
+            <div class="err-message">YOUR ROOMS ARE EMPTY</div>
+        <% } %> 
+        <% userRooms.forEach(room => { %>
+            <div class="room">
+                <div class="name">
+                    <%= room.roomName %> 
+                </div>
+                <div class="buttons">
+                    <a href="/room/edit/id=<%= room.id %>">Edit</a>
+                    <form action="/room/edit/delete/id=<%= room.id %>?_method=DELETE" method="POST" class="delete-form">
+                        <button type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
+        <% }) %> 
+    </div>
+    <div class="create-room-container">
+        <a href="/room/create">Create a Room</a>
+    </div>
+</body>
+</html>

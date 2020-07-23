@@ -1,0 +1,119 @@
+*,
+*::before, 
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #a2b0cf;
+    font-family: 'Work Sans', sans-serif;
+}
+
+.container {
+    background-color: #002853;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: .8rem;
+    width: 350px;
+}
+
+.title {
+    font-size: 2rem;
+    text-transform: capitalize;
+    font-family: 'Audiowide', cursive;
+    text-align: center;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1.5px solid #234466;
+    padding: 5px 10px;
+    border-radius: .5rem;
+    width: 100%;
+}
+
+.login-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 15px;
+    width: 100%;
+}
+
+.login-form input {
+    width: 180px;
+    margin: 3px 0;
+    background: #ccd;
+    border-radius: .5rem;
+    padding: 5px;
+    color: #002853;
+    font-weight: 800;
+    outline: none;
+    width: 100%;
+}
+
+.login-form input:focus {
+    background-color: #709eff;
+}
+
+.login-form button {
+    background-color: #486dbd;
+    outline: none;
+    border-radius: .8rem;
+    padding: 5px;
+    font-weight: 900;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: .5s;
+}
+
+.login-form button:hover {
+    background-color: #0c3a9c;
+}
+
+.option-container {
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.option-container a {
+    text-decoration: none;
+    color: #ccd;
+    background-color: #011b36;
+    padding: 5px;
+    border-radius: .5rem;
+    margin-top: 10px;
+}
+
+.option-container a:hover {
+    background-color: #234466;
+}
+
+.err-message {
+    color: red;
+    text-align: center;
+}
+
+@media all and (max-width: 390px) {
+    .container {
+        width: 260px;
+    }
+}

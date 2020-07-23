@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Audiowide&family=Work+Sans:wght@600&display=swap" 
+        rel="stylesheet"
+    >
+    <link rel="stylesheet" href="/Styles/loginForm.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Login form</h1>
+        
+        <div class="err-message">
+            <% if (message != null) { %>
+                <%= message %>
+            <% } %>
+        </div>
+        <div class="form-container">
+            <form class="login-form" action="/login" method="POST">
+                <div class="email-container">
+                    <input placeholder="Email" type="email" id="email" name="email" required>
+                </div>
+                <div class="pass-container">
+                    <input placeholder="Password" type="password" id="password" name="password" required>
+                </div>
+                <button class="submit-btn" type="submit">Login</button>
+            </form>
+            <div class="option-container">
+                Don't have an account ?
+                <a href="/register">Register</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
