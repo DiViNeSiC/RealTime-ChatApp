@@ -34,14 +34,14 @@ async function updateUser(name, email, user) {
         name: name,
         email: email,
     }
-
-    if (checkExist.nameExistFlag) {
+    
+    if (checkExist.nameExistFlag && name !== user.name) {
         notificationMessage = 'Username Already Exist!'
         notificationMessageStatus = 'bad'
         return 
     }
     
-    if (checkExist.emailExistFlag) {
+    if (checkExist.emailExistFlag && email !== user.email) {
         notificationMessage = 'Email Already Exist!'
         notificationMessageStatus = 'bad'
         return 
