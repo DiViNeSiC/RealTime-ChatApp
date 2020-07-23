@@ -16,11 +16,11 @@ socket.on('chat-message', data => {
     appendMessage(`${data.name}: ${data.message}`, false)
 })
 
-socket.on('user-connected', data => {
+socket.on('user-connected', name => {
     appendMessage(`${name} Joined`, true)
 })
 
-socket.on('user-disconnected', data => {
+socket.on('user-disconnected', name => {
     appendMessage(`${name} left`, true)
 })
 
