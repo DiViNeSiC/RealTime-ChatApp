@@ -1,4 +1,5 @@
 const User = require('../models/user')
+const Room = require('../models/room')
 const bcrypt = require('bcrypt')
 const nameExistCheck = require('../Configs/nameExistCheck')
 const getLoggedUser = require('./getLoggedUser')
@@ -34,7 +35,7 @@ async function updateUser(name, email, user) {
         name: name,
         email: email,
     }
-    
+
     if (checkExist.nameExistFlag && name !== user.name) {
         notificationMessage = 'Username Already Exist!'
         notificationMessageStatus = 'bad'
@@ -85,10 +86,11 @@ async function changePassword(req, res) {
 
 async function deleteUserAccount(req, res) {
     const enteredPassword = req.body.password
-    const user = await getLoggedUser(req.payload.id)
+    const user = await getLoggedUser(req.payload.id) 
     try {
         if (await bcrypt.compare(enteredPassword, user.password)) {
             await User.findByIdAndDelete(user.id)
+            await Room.deleteMany({ creatorId: user.id })
             req.session.token = null
             res.redirect('/login')
         } else {
