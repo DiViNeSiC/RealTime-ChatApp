@@ -1,5 +1,3 @@
-// const socket = io('https://real-time-chat-app-testing.herokuapp.com')
-// http://localhost:3000
 const socket = io('https://real-time-chat-app-testing.herokuapp.com', {
     query: {
         token: token,
@@ -9,9 +7,8 @@ const socket = io('https://real-time-chat-app-testing.herokuapp.com', {
 const messageContainer = document.getElementById('messageContainer')
 const messageForm = document.getElementById('sendContainer')
 const messageInput = document.getElementById('messageInput')
-const onlineMembers = document.getElementById('onlineMembers')
+
 if (messageForm != null) {
-    onlineMembers.innerText = `${onlineMemberCount} Online`
     startApp()
 }
 
@@ -21,12 +18,10 @@ socket.on('chat-message', data => {
 
 socket.on('user-connected', data => {
     appendMessage(`${name} Joined`, true)
-    incrementOnlineMembers()
 })
 
 socket.on('user-disconnected', data => {
     appendMessage(`${name} left`, true)
-    decrementOnlineMembers()
 })
 
 function startApp() {
@@ -46,14 +41,4 @@ function appendMessage(message, isJoined) {
     messageDiv.innerText = message
     isJoined ? messageDiv.classList.add('join') : messageDiv.classList.add('msg')
     messageContainer.appendChild(messageDiv)
-}
-
-function incrementOnlineMembers() {
-    onlineMemberCount++
-    onlineMembers.innerText = `${onlineMemberCount} Online`
-}
-
-function decrementOnlineMembers() {
-    onlineMemberCount--
-    onlineMembers.innerText = `${onlineMemberCount} Online`
 }
