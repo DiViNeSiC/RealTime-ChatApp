@@ -4,6 +4,10 @@ const nameExistCheck = require('../Configs/nameExistCheck')
 
 async function registerNewUser(req, res) {
     const { name, email, password } = req.body
+    const lowerCaseInfo = {
+        name: name.toLowerCase(),
+        email: email.toLowerCase()
+    }
     const checkExist = await nameExistCheck(name, email, true)
     if (checkExist.nameExistFlag) 
         return res.render('register', { userExistError: true, errMessage: 'Username Already Exist!' })
@@ -12,8 +16,8 @@ async function registerNewUser(req, res) {
     try {
         const hashedPassword = await bcrypt.hash(password, 10)
         User.create({
-            name: name,
-            email: email,
+            name: lowerCaseInfo.name,
+            email: lowerCaseInfo.email,
             password: hashedPassword
         })
         res.redirect('/login')

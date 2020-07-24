@@ -4,7 +4,8 @@ const jwt = require('jwt-then')
 
 async function login(req, res) {
     const { email, password } = req.body
-    const user = await User.findOne({ email })
+    const lowerCaseEmail = email.toLowerCase()
+    const user = await User.findOne({ email: lowerCaseEmail })
     
     if (user == null) res.render('login', { message: 'No User With That Email' })
 
