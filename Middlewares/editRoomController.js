@@ -25,7 +25,7 @@ async function updateRoom(req, res) {
     const newName = req.body.name
     const newDescription = req.body.description
     const nameRegex = /[^A-Za-z\s]/i 
-    const checkExist = await nameExistCheck(name, null, false)
+    const checkExist = await nameExistCheck(newName, null, false)
     const room = {
         roomName: newName,
         description: newDescription
