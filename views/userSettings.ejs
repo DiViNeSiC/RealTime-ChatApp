@@ -37,7 +37,7 @@
             <div class="buttons">
                 <button type="submit" id="updateButton" class="update-button">Update Account</button>
                 <button type="button" id="changePassButton" class="change-pass-button">Change Password</button>
-                <button type="button" id="deleteButton" class="delete-button">Delete Your Account</button>
+                <button type="button" id="deleteButton" class="delete-button">Delete Account</button>
             </div>
         </form>
     </div>
@@ -51,7 +51,17 @@
                     <label for="DeletePassword">Enter Your Password</label>
                     <input type="password" name="password" id="DeletePassword" required>
                 </div>
-                <button type="submit" class="button">Delete Your Account</button>
+                <div id="confirmModal" class="confirm-modal hidden">
+                    If you delete your account all the chats you've been created will be deleted 
+                    <div class="confirm">
+                        Are You Sure?
+                        <div class="confirm-buttons">
+                            <button id="closeConfirm" class="closing-btn">No</button>
+                            <button type="submit" class="delete-confirm-btn">Yes</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="open-confirm-btn" id="openConfirm">Delete My Account</button>
             </form>
         </div>
     </div>

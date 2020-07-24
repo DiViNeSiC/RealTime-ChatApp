@@ -21,9 +21,6 @@ const roomSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true
-    },
-    joinedUsers: {
-        type: Array
     }
 })
 

@@ -1,7 +1,7 @@
 const settingsModal = document.getElementById('deleteModal')
 const chatRoomModal = document.getElementById('modal')
 const changePassModal = document.getElementById('changePassModal')
-
+const confirmModal = document.getElementById('confirmModal')
 
 function toggleModal(openButton, modalContainer, closeButton) {
     openButton.addEventListener('click', () => {
@@ -28,4 +28,10 @@ if (changePassModal != null) {
     const changePassCloseModalButton = document.getElementById('changePassCloseModalButton')
     const changePassButton = document.getElementById('changePassButton')
     toggleModal(changePassButton, changePassModal, changePassCloseModalButton)
+}
+
+if (confirmModal != null) {
+    const closeConfirm = document.getElementById('closeConfirm')
+    const openConfirm = document.getElementById('openConfirm')
+    toggleModal(openConfirm, confirmModal, closeConfirm)
 }
