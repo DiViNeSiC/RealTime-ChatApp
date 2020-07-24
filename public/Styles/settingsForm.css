@@ -250,6 +250,7 @@ body {
     font-size: 1.2rem;
     font-weight: 800;
     text-align: center;
+    z-index: 3;
 }
 
 .confirm-modal .confirm {
