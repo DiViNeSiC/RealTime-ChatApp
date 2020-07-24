@@ -1,4 +1,4 @@
-const socket = io('https://real-time-chat-app-testing.herokuapp.com', {
+const socket = io('https://divine-realtime-chatapp.herokuapp.com', {
     query: {
         token: token,
         roomId: roomId
